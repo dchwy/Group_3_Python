@@ -6,6 +6,7 @@ import json
 with open("ingredients.json", "r", encoding="utf-8") as file:
     ingredients_data = json.load(file)
 
+    
 st.title("Chọn Nguyên Liệu")
 
 # Khởi tạo danh sách để lưu các nguyên liệu đã chọn
@@ -26,4 +27,4 @@ if selected_ingredients:
     st.write("Nguyên liệu đã chọn:", selected_ingredients)
 else:
     st.write("Hãy chọn các nguyên liệu bạn có sẵn.")
-#fhjvkb
+
