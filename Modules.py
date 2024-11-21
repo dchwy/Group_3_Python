@@ -3,6 +3,7 @@ import base64
 from streamlit_extras.switch_page_button import switch_page
 import toml
 
+
 class VisualHandler:
     # Danh sách hình ảnh nền
     BACKGROUND_OPTIONS = [
@@ -104,7 +105,7 @@ class VisualHandler:
             switch_page("Make Menu")
         if st.sidebar.button("Contact Us"):
             switch_page("Contact Us")
-
+        
         st.sidebar.divider()
 
         st.sidebar.markdown("""
