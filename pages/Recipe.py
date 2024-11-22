@@ -121,30 +121,30 @@ default_dishes = ['Tôm chiên xù','Canh rau dền nấu mọc tôm',"Su su xà
 df_filtered = df_filtered = df[df['Tên món'].isin(default_dishes)]
 
 if not display:# and not search_input:
-    st.title("BESTT Sellers")
+    st.title("BEST SELLERS!!!")
     cols = st.columns(3)
     for index, row in df_filtered.reset_index(drop=True).iterrows():
         col = cols[index % 3]
         with col:
             with st.container():
                 st.markdown(
-                    f"""
-                    <div style="background-color:#89DA59; padding: 20px; border-radius: 10px; 
-                                border: 2px solid #ff420e;">
-                        <h3 style="color:#333;">{row[0]}</h3>
-                        <p><strong>Nguyên liệu chính:</strong> {row[1]}</p>
-                        <p><strong>Thời gian:</strong> {row[7]}</p>
-                        <p><strong>Calo:</strong> {row[8]} kcal</p>
-                        <a href="{link_create(row[0])}" target="_blank">
-                            <button style="padding: 8px 12px; color: white; background-color: #4CAF50; 
-                                        border: none; border-radius: 5px; cursor: pointer;">
-                                Xem công thức
-                            </button>
-                        </a>
-                    </div>
-                    """, 
-                    unsafe_allow_html=True
-                )
+                f"""
+                <div style="background-color:#e8ea8c; padding: 20px; border-radius: 10px; 
+                            border: 2px solid #e8ea8c;">
+                    <h3 style="color:black;">{row[0]}</h3>
+                    <p style="color:black;"><strong>Nguyên liệu chính:</strong> {row[1]}</p>
+                    <p style="color:black;"><strong>Thời gian:</strong> {row[7]}</p>
+                    <p style="color:black;"><strong>Calo:</strong> {row[8]} kcal</p>
+                    <a href="{link_create(row[0])}" target="_blank">
+                        <button style="padding: 8px 12px; color: white; background-color: #4CAF50; 
+                                    border: none; border-radius: 5px; cursor: pointer;">
+                            Xem công thức
+                        </button>
+                    </a>
+                </div>
+                """, 
+                unsafe_allow_html=True
+            )
             st.markdown("<br>", unsafe_allow_html=True)
 
 elif display:
@@ -170,13 +170,13 @@ elif display:
             with col:
                 with st.container():
                     st.markdown(
-                        f"""
-                        <div style="background-color:#e0f7fa; padding: 20px; border-radius: 10px; 
-                                    border: 2px solid #b0e0e6;">
-                            <h3 style="color:#333;">{row[0]}</h3>
-                            <p><strong>Nguyên liệu chính:</strong> {row[1]}</p>
-                            <p><strong>Thời gian:</strong> {row[7]}</p>
-                            <p><strong>Calo:</strong> {row[8]} kcal</p>
+                    f"""
+                        <div style="background-color:#e8ea8c; padding: 20px; border-radius: 10px; 
+                                    border: 2px solid #e8ea8c;">
+                            <h3 style="color:black;">{row[0]}</h3>
+                            <p style="color:black;"><strong>Nguyên liệu chính:</strong> {row[1]}</p>
+                            <p style="color:black;"><strong>Thời gian:</strong> {row[7]}</p>
+                            <p style="color:black;"><strong>Calo:</strong> {row[8]} kcal</p>
                             <a href="{link_create(row[0])}" target="_blank">
                                 <button style="padding: 8px 12px; color: white; background-color: #4CAF50; 
                                             border: none; border-radius: 5px; cursor: pointer;">
