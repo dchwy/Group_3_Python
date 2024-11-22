@@ -11,3 +11,4 @@ streamlit_lottie
 st_pages
 streamlit.extras
 python-dotenv
+fuzzywuzzy
