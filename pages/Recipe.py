@@ -80,27 +80,32 @@ with st.sidebar:
         if st.button("Xác nhận", key="confirm_button"):
             display = True
 #############################################################################################################
-# Thêm thanh tìm kiếm món ăn
+import streamlit as st
+from fuzzywuzzy import process
+import pandas as pd
+
+# Thanh tìm kiếm món ăn
 st.title("Tìm kiếm món ăn")
-search_query = st.text_input("Nhập tên món ăn:", "")
+search_query = st.text_input("Nhập tên món ăn:", "")  # Chỉ tạo một thanh tìm kiếm
 
 if search_query:
-    search_results = df[df["Tên món"].str.contains(search_query, case=False, na=False)]
-    if search_results.empty:
-        st.info("Không tìm thấy món ăn phù hợp với từ khóa của bạn.")
-    else:
+    # Tìm món ăn dựa trên độ tương đồng cao nhất
+    suggestions = process.extract(search_query, df["Tên món"], limit = 20) 
+
+    if suggestions:
         st.markdown("### Kết quả tìm kiếm:")
         selected_recipe = st.selectbox(
             "Chọn một món ăn từ gợi ý:",
-            options=search_results["Tên món"].tolist()
+            options=[suggestion[0] for suggestion in suggestions],  # Chỉ lấy tên món ăn
+            key="unique_selectbox"  # Đảm bảo không tạo thêm selectbox trùng lặp
         )
 
+        # Hiển thị thông tin món ăn nếu người dùng chọn món
         if selected_recipe:
-            # Lấy thông tin chi tiết món ăn đã chọn
-            selected_row = search_results[search_results["Tên món"] == selected_recipe].iloc[0]
+            selected_row = df[df["Tên món"] == selected_recipe].iloc[0]
             st.markdown(
                 f"""
-                ### *{selected_row['Tên món']}*
+                ### {selected_row['Tên món']}
                 - *Nguyên liệu:* {selected_row['Nguyên liệu']}
                 - *Thời gian nấu:* {selected_row['Time']}
                 - *Calo:* {selected_row['Calo ']} kcal
@@ -113,6 +118,9 @@ if search_query:
                 """,
                 unsafe_allow_html=True
             )
+    else:
+        st.info("Không tìm thấy món ăn phù hợp với từ khóa của bạn.")
+
 #############################################################################################################
 
 default_dishes = ['Tôm chiên xù','Canh rau dền nấu mọc tôm',"Su su xào thịt bò","Bò Xào Nấm Kim Châm",

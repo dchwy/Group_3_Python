@@ -116,7 +116,7 @@ def generate_menu(duration, menu):
     elif duration == "1 ngày":
         if breakfast_menu:  # Check if there are breakfast options available
             daily_structure["Breakfast"] = random.sample(breakfast_menu, 1)
-        daily_structure["Lunch"] = random.sample(menu, 2)
+        daily_structure["Lunch"] = random.sample(menu, 3)
         daily_structure["Dinner"] = random.sample(menu, 2)
         return daily_structure
     elif duration == "1 tuần":
@@ -125,7 +125,7 @@ def generate_menu(duration, menu):
             day = {}
             if breakfast_menu:
                 day["Breakfast"] = random.sample(breakfast_menu, 1)  
-            day["Lunch"] = random.sample(menu, 2)
+            day["Lunch"] = random.sample(menu, 3)
             day["Dinner"] = random.sample(menu, 2)
             weekly_menu.append(day)
         return weekly_menu
@@ -135,7 +135,7 @@ def generate_menu(duration, menu):
             day = {}
             if breakfast_menu:
                 day["Breakfast"] = random.sample(breakfast_menu, 1) 
-            day["Lunch"] = random.sample(menu, 2)
+            day["Lunch"] = random.sample(menu, 3)
             day["Dinner"] = random.sample(menu, 2)
             monthly_menu.append(day)
         return monthly_menu

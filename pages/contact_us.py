@@ -3,7 +3,6 @@ from streamlit_extras.switch_page_button import switch_page
 import base64
 import webbrowser
 import re
-import smtplib
 from Modules import VisualHandler
 
 
