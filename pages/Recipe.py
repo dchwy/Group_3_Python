@@ -101,25 +101,31 @@ if search_query:
         )
 
         # Hiển thị thông tin món ăn nếu người dùng chọn món
-        if selected_recipe:
-            selected_row = df[df["Tên món"] == selected_recipe].iloc[0]
-            st.markdown(
-                f"""
-                ### {selected_row['Tên món']}
-                - *Nguyên liệu:* {selected_row['Nguyên liệu']}
-                - *Thời gian nấu:* {selected_row['Time']}
-                - *Calo:* {selected_row['Calo ']} kcal
-                """,
-                unsafe_allow_html=True
-            )
-            st.markdown(
-                f"""
-                [Xem công thức tại đây]({selected_row['Công thức']})
-                """,
-                unsafe_allow_html=True
-            )
+    if selected_recipe:
+        selected_row = df[df["Tên món"] == selected_recipe].iloc[0]
+        
+        # Thay thế phần st.markdown ban đầu bằng phần HTML có style
+        st.markdown(
+            f"""
+            <div style="background-color:#e8ea8c; padding: 20px; border-radius: 10px; 
+                        border: 2px solid #e8ea8c;">
+                <h3 style="color:black;">{selected_row['Tên món']}</h3>
+                <p style="color:black;"><strong>Nguyên liệu chính:</strong> {selected_row['Nguyên liệu']}</p>
+                <p style="color:black;"><strong>Thời gian nấu:</strong> {selected_row['Time']}</p>
+                <p style="color:black;"><strong>Calo:</strong> {selected_row['Calo ']} kcal</p>
+                <a href="{selected_row['Công thức']}" target="_blank">
+                    <button style="padding: 8px 12px; color: white; background-color: #4CAF50; 
+                                border: none; border-radius: 5px; cursor: pointer;">
+                        Xem công thức
+                    </button>
+                </a>
+            </div>
+            """, 
+            unsafe_allow_html=True
+        )
     else:
         st.info("Không tìm thấy món ăn phù hợp với từ khóa của bạn.")
+
 
 #############################################################################################################
 
