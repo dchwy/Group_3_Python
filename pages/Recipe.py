@@ -13,6 +13,8 @@ st.set_page_config(
 )
 VisualHandler.initial()
 
+
+
 #############################################################################################################
 
 with open("ingredients.json", "r", encoding="utf-8") as file:
@@ -127,8 +129,8 @@ if not display:# and not search_input:
             with st.container():
                 st.markdown(
                     f"""
-                    <div style="background-color:#e0f7fa; padding: 20px; border-radius: 10px; 
-                                border: 2px solid #b0e0e6;">
+                    <div style="background-color:#89DA59; padding: 20px; border-radius: 10px; 
+                                border: 2px solid #ff420e;">
                         <h3 style="color:#333;">{row[0]}</h3>
                         <p><strong>Nguyên liệu chính:</strong> {row[1]}</p>
                         <p><strong>Thời gian:</strong> {row[7]}</p>

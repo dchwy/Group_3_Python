@@ -7,11 +7,11 @@ import toml
 class VisualHandler:
     # Danh sách hình ảnh nền
     BACKGROUND_OPTIONS = [
-        "backgrounds/bg1.jpg",
-        "backgrounds/bg2.jpg",
-        "backgrounds/bg3.jpg",
-        "backgrounds/bg4.jpg",
-        "backgrounds/bg5.jpg",
+        "backgrounds/1.png",
+        "backgrounds/2.png",
+        "backgrounds/3.png",
+        "backgrounds/4.png",
+        "backgrounds/5.png",
     ]
     
     @staticmethod
@@ -29,7 +29,7 @@ class VisualHandler:
         background-image: url("data:image/png;base64,{background}");
         background-size: cover;
         background-repeat: no-repeat;
-        background-attachment: local;
+        background-attachment: fixed;
         }}
         </style>
         """
@@ -56,7 +56,7 @@ class VisualHandler:
         selected_background = st.sidebar.selectbox(
             "Chọn hình ảnh nền:", 
             cls.BACKGROUND_OPTIONS,
-            format_func=lambda x: x.split("/")[-1].replace(".jpg", "").replace("_", " ").title()
+            format_func=lambda x: x.split("/")[-1].replace(".png", "").replace("_", " ").title()
         )
 
         # Cập nhật nền nếu người dùng chọn hình mới
@@ -66,33 +66,7 @@ class VisualHandler:
 
     @classmethod
     def display_sidebar_features(cls):
-        # Các nút chuyển trang
-        st.sidebar.title("Chức năng")
-
-        # CSS cho nút
-        button_css = """
-        <style>
-        .sidebar-btn {
-            width: 100%;
-            height: 50px;
-            margin: 5px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            border-radius: 5px;
-            color: #ffffff;
-            background-color: #4CAF50; /* Màu nền xanh lá */
-            border: none;
-            cursor: pointer;
-        }
-        .sidebar-btn:hover {
-            background-color: #45a049; /* Màu khi hover */
-        }
-        </style>
-        """
-        st.markdown(button_css, unsafe_allow_html=True)
-
+        
         # Các nút chuyển trang
         st.sidebar.title("Chức năng")
         if st.sidebar.button("Home"):
