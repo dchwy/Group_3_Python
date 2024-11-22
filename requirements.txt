@@ -1,7 +1,7 @@
 streamlit==1.38.0
 bcrypt
 pandas
-openyxl
+openpyxl
 numpy
 beautifulsoup4
 pymongo
