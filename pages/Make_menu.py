@@ -160,6 +160,20 @@ def create_menu(weight, height, duration, issue):
     final_menu = generate_menu(duration, condition_filtered_menu)
     return final_menu
 ########################################################################################################################################
+
+st.markdown("""
+    <style>
+        .stButton > button {
+            width: 150px;  /* Điều chỉnh chiều rộng */
+            height: 35px;  /* Điều chỉnh chiều cao */
+            font-size: 14px;  /* Kích thước chữ */
+            border-radius: 5px;  /* Làm bo góc */
+            padding: 5px;  /* Padding để chữ không bị sát viền */
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+
 if st.button("Tính toán BMI"):
     bmi = calculate_bmi(weight, height)
     if bmi:

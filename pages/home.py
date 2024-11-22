@@ -54,7 +54,6 @@ def display_home():
 display_home()
 
 
-
 # Nhúng CDN Font Awesome để sử dụng icon mạng xã hội
 st.markdown("""
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">

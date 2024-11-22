@@ -7,11 +7,11 @@ import toml
 class VisualHandler:
     # Danh sách hình ảnh nền
     BACKGROUND_OPTIONS = [
-        "backgrounds/1.png",
-        "backgrounds/2.png",
-        "backgrounds/3.png",
-        "backgrounds/4.png",
-        "backgrounds/5.png",
+        "backgrounds/1-Table.png",
+        "backgrounds/2-Table.png",
+        "backgrounds/Seed.png",
+        "backgrounds/Bread.png",
+        "backgrounds/Powder.png",
     ]
     
     @staticmethod
@@ -37,8 +37,9 @@ class VisualHandler:
 
     @classmethod
     def load_css(cls, css: str):
-        with open(css) as f:
+        with open(css, "r", encoding="utf-8") as f:
             st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
 
     @classmethod
     def handle_sidebar_style(cls):

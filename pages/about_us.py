@@ -14,7 +14,6 @@ VisualHandler.initial()
 # Hàm hiển thị thông tin về CALM
 def display_about_info():
     st.title("About CALM")
-
     # Câu chuyện về CALM
     with st.expander("Câu chuyện về CALM", expanded=False):
         st.write("""
@@ -55,6 +54,18 @@ def display_about_info():
         for offer, descript in offers.items():
             st.subheader(offer)
             st.write(descript)
+           
+            st.markdown("""
+                <style>
+                    .stButton > button {
+                        width: 300px;  /* Điều chỉnh chiều rộng */
+                        height: 35px;  /* Điều chỉnh chiều cao */
+                        font-size: 14px;  /* Kích thước chữ */
+                        border-radius: 5px;  /* Làm bo góc */
+                        padding: 5px;  /* Padding để chữ không bị sát viền */
+                    }
+                </style>
+            """, unsafe_allow_html=True)
 
             if offer == "Hướng dẫn nấu ăn theo nguyên liệu sẵn có":
                 # Sử dụng switch_page để điều hướng đến Recipe khi nhấn nút
